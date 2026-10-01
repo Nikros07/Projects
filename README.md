@@ -1,142 +1,87 @@
-# projects
+# Meine Projekte
 
-Die Landkarte aller meiner Projekte und Repos: was es gibt, wie es zusammenhängt,
-was funktioniert hat, was nicht — und was du davon für deine eigenen Projekte
-mitnehmen kannst.
+Hier steht, was ich schon gebaut habe. Willst du etwas Ähnliches machen? Schau, was
+dazu passt, und nimm dir den Teil, den du brauchst. Jedes Projekt hat sein eigenes
+Repo (verlinkt), hier sind nur die Erklärungen.
 
-## 👋 Für Freunde: Was willst du bauen?
-
-**→ Ausführlich in [NUTZEN.md](NUTZEN.md)** — dort steht je Ziel das Repo, die
-genauen Dateien und wie du nur den Teil holst, den du brauchst. Kurzfassung:
-
-| Ich will … | Nimm … |
-|---|---|
-| einen Backtest, der nicht lügt | [Eye of Horus](projekte/eye-of-horus.md) (`quant_engine/temporal.py`) · [NEMI](projekte/operation-nemi.md) (`nemi/backtest/`) |
-| Marktdaten sammeln, Risiko rechnen | [NEMI](projekte/operation-nemi.md) (`nemi/data/`, `nemi/risk/`) |
-| KI-Agenten, die sich widersprechen | [Polymarket Bot](projekte/polymarket-bot.md) (einfacher) · [Apex Capital](projekte/apex-capital.md) |
-| etwas gratis nachts laufen lassen | [Fly of Wallstreet](projekte/fly-of-wallstreet.md) → [BAUSTEINE.md](BAUSTEINE.md) Nr. 1–2 |
-| KI nachts am Projekt weiterbauen lassen | [Nachtschicht](projekte/nachtschicht.md) → [BAUSTEINE.md](BAUSTEINE.md) Nr. 3 |
-| ein Browserspiel ohne Framework | [Nico Frog](projekte/nico-frog.md) (klein) · [Nachtschicht](projekte/nachtschicht.md) (groß) |
-| eine private App für mich | [Amet](projekte/amet.md) (Supabase) · [Health Tracker](projekte/health-tracker.md) (PWA) |
-| ein Dashboard mit Widgets | [Hermes AI Dashboard](projekte/hermes-ai-dashboard.md) · [Personal Dashboard](projekte/personal-dashboard.md) |
-| Ereignisse mit Märkten verknüpfen | [Eye of Horus](projekte/eye-of-horus.md) |
-| mit einem echten Fliegengehirn spielen | [Fuck the Fly](projekte/fuck-the-fly.md) · [Fly of Wallstreet](projekte/fly-of-wallstreet.md) |
-
-Nur Ideen und Muster ohne Code? → [LERNEN.md](LERNEN.md) (Lektionen),
-[BAUSTEINE.md](BAUSTEINE.md) (Rezepte zum Abschreiben), [IDEEN.md](IDEEN.md) (Brainstorm).
+Wenn du etwas verwendest, verlink bitte kurz dieses Repo: https://github.com/Nikros07/Projects
 
 ---
 
-## Die Karte
+## Trading & Finanzen
 
-```mermaid
-graph LR
-  subgraph Trading & Forschung
-    APEX[Apex Capital<br/>10 KI-Agenten, live]
-    NEMI[Operation NEMI<br/>Forschungs-Nachfolger]
-    FLY[Fly of Wallstreet<br/>Fliegenzucht, live]
-    FTF[Fuck the Fly<br/>Fliegenhirn swiped Bilder]
-    EOH[Eye of Horus<br/>Event → Markt]
-    POLY[Polymarket Bot<br/>OASIS-Entscheider]
-    MT5[MT5 Master Strategy<br/>EA + ETF-Momentum]
-  end
-  subgraph Persönliche Werkzeuge
-    AMET[Amet<br/>Finance-App]
-    PD[Personal Dashboard<br/>Obsidian + Hermes]
-    HERMES[Hermes AI Dashboard<br/>Next.js Kommandozentrale]
-    HT[Health Tracker<br/>PWA]
-  end
-  subgraph Spiele
-    NACHT[Nachtschicht<br/>Pixel-Partyspiel]
-    FROG[Nico Frog<br/>Mini-Spiel]
-  end
-  APEX -- Lehren/Code --> NEMI
-  APEX -- Agenten-Muster --> POLY
-  NEMI -. bewusst getrennt .- FLY
-  FTF -. gleiches Fliegen-Konnektom .- FLY
-  PD -- Idee/Schwester --> HERMES
-```
+### Apex Capital — 10 KI-Agenten, die Aktien debattieren
+[Repo](https://github.com/Nikros07/Apex-Capital) · Python, FastAPI · läuft live (nur Papiergeld)
+Agenten mit Rollen (Makro, Technik, Fundamental, Risiko, Bulle, Bär, CIO, Teufelsanwalt) recherchieren und streiten, bevor getradet wird.
+**Das kannst du nutzen:** `agents/` als Vorlage für ein Agenten-Team mit Rollen und Widerspruch.
 
-*Durchgezogen = ein Projekt ist aus dem anderen entstanden, gestrichelt = verwandt.*
+### Operation NEMI — Trading-Forschung mit „NO TRADE" als Standard
+[Repo](https://github.com/Nikros07/Operation-NEMI) · Python
+Backtester mit Walk-forward und Monte Carlo, Yahoo-Datensammler, Risiko-Rechnung. Ergebnis ehrlich: im Test nicht profitabel.
+**Das kannst du nutzen:** `nemi/backtest/` (ehrlich testen), `nemi/data/` (Marktdaten sammeln), `nemi/risk/` (Positionsgröße, Stops).
 
----
+### Fly of Wallstreet — Fliegengehirn lernt Trading
+[Repo](https://github.com/Nikros07/Fly-of-Wallstreet) · Python · läuft gratis auf GitHub Actions
+Künstliche Fruchtfliegen (Pilzkörper + Dopamin) lernen, wöchentlich Auslese. Ergebnis ehrlich: kein belegter Vorsprung vor dem Index.
+**Das kannst du nutzen:** `.github/workflows/daily.yml` (kostenloser täglicher Job mit Zustand auf eigenem Branch), `fly/evolution.py` (evolutionäre Auslese), `fly/broker.py` (Alpaca-Papierkonto).
 
-## Übersicht
+### Eye of Horus — von Ereignissen zu Marktwirkung
+[Repo](https://github.com/Nikros07/Eye-of-Horus) · FastAPI, Next.js, 3D-Globus
+Wetter-/Katastrophen-Ereignisse → Impact-Graph → Signale → Backtest → Papierhandel. Läuft im Demo-Modus ohne Schlüssel.
+**Das kannst du nutzen:** `backend/app/services/quant_engine/` (Backtester, der Zukunftsdaten verweigert), `event_engine/` (NASA EONET, Open-Meteo).
 
-| Projekt | Worum geht's | Stack | Stand | Repo |
-|---|---|---|---|---|
-| [Apex Capital](projekte/apex-capital.md) | 10 KI-Agenten mit Persönlichkeit recherchieren, debattieren und handeln (Papiergeld) | Python, FastAPI, Docker, Railway | **läuft live** | [Apex-Capital](https://github.com/Nikros07/Apex-Capital) |
-| [Operation NEMI](projekte/operation-nemi.md) | Quant-Forschung mit „NO TRADE als Standard" — Nachfolger von Apex | Python 3.11, Backtester, Railway-Cron | Backtest: **nicht profitabel**, kein Kapital | [Operation-NEMI](https://github.com/Nikros07/Operation-NEMI) |
-| [Fly of Wallstreet](projekte/fly-of-wallstreet.md) | Künstliche Fruchtfliegen (Pilzkörper + Dopamin) lernen Trading, Wochen-Evolution | Python, NumPy, GitHub Actions | **läuft live**, kein belegter Vorsprung | [Fly-of-Wallstreet](https://github.com/Nikros07/Fly-of-Wallstreet) |
-| [Fuck the Fly](projekte/fuck-the-fly.md) | Echtes Fliegenhirn (166.700 Neuronen) swiped Bilder links/rechts | Python, `flybrain` | Spielerei, fertig | [Fuck-the-Fly](https://github.com/Nikros07/Fuck-the-Fly) |
-| [Eye of Horus](projekte/eye-of-horus.md) | Von realen Ereignissen zu Marktwirkung, mit erzwungener Look-ahead-Freiheit | FastAPI, Next.js 16, React Three Fiber | Demo-Modus komplett, Live-Anbindung vorbereitet | [Eye-of-Horus](https://github.com/Nikros07/Eye-of-Horus) |
-| [Polymarket Bot](projekte/polymarket-bot.md) | 10-Agenten-„OASIS"-Entscheider für Wetten und Prognosemärkte | Python, Streamlit, FastAPI | ruht seit April | [Polymarket-Bot](https://github.com/Nikros07/Polymarket-Bot) |
-| [MT5 Master Strategy](projekte/mt5-master-strategy.md) | Forex-EA (v7) + ETF-Momentum-Portfolio (v4), gegen DAX/S&P gemessen | MQL5, Python | v7 kompiliert, Testlauf offen | lokal im Vault |
-| [Amet](projekte/amet.md) | Privates Finance-Cockpit mit Wallets, Budgets, Sparzielen, KI-Assistent | Vanilla-JS, Supabase | Phasen A–D fertig | [Amet](https://github.com/Nikros07/Amet) |
-| [Personal Dashboard](projekte/personal-dashboard.md) | Lokales Dashboard: Obsidian-Sync, Hermes-Agenten, Aufgaben, Monitoring | React/Vite, Fastify, SQLite | Gerüst/Prototyp | [Personal-Dashboard](https://github.com/Nikros07/Personal-Dashboard) |
-| [Hermes AI Dashboard](projekte/hermes-ai-dashboard.md) | Apple-inspirierte KI-Kommandozentrale mit Widget-Board | Next.js, Tailwind, Framer Motion | läuft mit Demo-Daten, noch ohne Remote | lokal (noch kein Repo) |
-| [Nachtschicht](projekte/nachtschicht.md) | Pixel-Art-Partyspiel im Browser, 8 Level, ohne Build | Vanilla-JS, GitHub Pages | **spielbar**, Nachtroutinen in Vorbereitung | [Nachtschicht](https://github.com/Nikros07/Nachtschicht) · [▶ spielen](https://nikros07.github.io/Nachtschicht/) |
-| [Health Tracker](projekte/health-tracker.md) | Installierbare PWA zum Mitzählen von Konsum | HTML/JS, Service Worker | klein, fertig | [Health-Tracker](https://github.com/Nikros07/Health-Tracker) |
-| [Nico Frog](projekte/nico-frog.md) | Ein-Datei-Browserspiel | HTML (eine Datei) | klein, fertig | [Nico-Frog](https://github.com/Nikros07/Nico-Frog) |
+### Polymarket Bot — Entscheidungs-Engine für Wetten und Prognosemärkte
+[Repo](https://github.com/Nikros07/Polymarket-Bot) · Python, Streamlit · ruht seit April
+10 Agenten in Stufen, mit einem Skeptiker, der widersprechen muss. Läuft auch gratis oder ganz ohne API-Schlüssel (Demo).
+**Das kannst du nutzen:** `backend/agents/` und `backend/core/orchestrator.py` für eine Agenten-Pipeline.
 
-Dazu das Umfeld: [Werkzeuge & fremder Code](projekte/umfeld.md) (Flipper-Firmware,
-Security-Tools, Zubehör) — **nicht** von mir geschrieben, aber nützlich zu wissen.
+### MT5 Master Strategy — Forex-Robot und ETF-Portfolio
+Lokal, kein eigenes Repo · MQL5, Python
+EA v7 (13 Märkte, Tagesbasis) und ein ETF-Momentum-Portfolio, gemessen gegen DAX und S&P 500. Erkenntnis: Der Vorteil liegt im geringeren Risiko, nicht in der Rendite; Kosten haben die erste Version zerstört.
+
+### Amet — private Finanz-App
+[Repo](https://github.com/Nikros07/Amet) · Vanilla-JS + Supabase
+Wallets, Budgets, Sparziele, Forecast, KI-Assistent. Kein Bankzugriff, alles manuell.
+**Das kannst du nutzen:** `supabase/` (Schema + Migrationen) und `js/` als Muster für eine Ein-Personen-App ohne Build.
 
 ---
 
-## Die rote Fäden
+## Spiele
 
-1. **Ehrlichkeit vor Rendite.** Fast jedes Trading-Projekt hat gelernt, dass die
-   erste gute Zahl meist ein Messfehler ist. Aus diesen Fehlern ist eine
-   Arbeitsweise geworden → [LERNEN.md](LERNEN.md).
-2. **NO TRADE ist ein gültiges Ergebnis.** Seit Apex Capital zu Trades gezwungen
-   wurde, ist „nichts tun" in jedem neueren Projekt der Ruhezustand.
-3. **Wenig Betrieb, wenig Kosten.** Cron statt Dauerbetrieb, GitHub Actions statt
-   Server, ein Branch als Datenbank → [BAUSTEINE.md](BAUSTEINE.md).
-4. **KI als Beiwerk, nicht als Rechner.** Alles, was Kapital berührt, rechnet
-   deterministischer Code. Sprachmodelle erklären, fassen zusammen, widersprechen.
-5. **Nachts arbeiten lassen.** Nachtschicht probiert aus, wie ein Projekt sich mit
-   einer Warteschlange und Cloud-Routinen selbst weiterbaut.
+### Nachtschicht — Pixel-Partyspiel im Browser
+[Repo](https://github.com/Nikros07/Nachtschicht) · [▶ spielen](https://nikros07.github.io/Nachtschicht/) · Vanilla-JS, 8 Level
+**Das kannst du nutzen:** `nacht/` als Spiel-Engine ohne Framework (Welt, Kampf, Dialoge, Ton, Touch-Steuerung).
 
----
+### Nico Frog — Mini-Spiel in einer Datei
+[Repo](https://github.com/Nikros07/Nico-Frog) · eine HTML-Datei
+**Das kannst du nutzen:** als kleinste Vorlage für ein Browserspiel.
 
-## Wie du das für deine Projekte nutzt
-
-- **Du baust ein Trading- oder Prognosesystem?** Lies zuerst
-  [LERNEN.md](LERNEN.md) — es spart dir die Fehler, die hier schon gemacht wurden
-  (Look-ahead, In-Sample-Täuschung, erzwungene Trades, Kosten).
-- **Du willst etwas billig und dauerhaft betreiben?** → [BAUSTEINE.md](BAUSTEINE.md),
-  Rezepte „Cron auf GitHub Actions" und „Zustand auf eigenem Branch".
-- **Du willst eine KI nachts an einem Projekt weiterarbeiten lassen?** →
-  [Nachtschicht](projekte/nachtschicht.md) und der Baustein „Nacht-Warteschlange".
-- **Du suchst Ideen?** → [IDEEN.md](IDEEN.md).
-
-Jeder Steckbrief in [projekte/](projekte/) hat einen Abschnitt **„Das kannst du
-mitnehmen"** — das ist der Teil, der auch ohne Kontext funktioniert.
+### Fuck the Fly — ein echtes Fliegenhirn swiped Bilder
+[Repo](https://github.com/Nikros07/Fuck-the-Fly) · Python, `pip install flybrain`
+**Das kannst du nutzen:** als Einstieg, um mit einem echten Gehirn-Modell (166.700 Neuronen) zu spielen.
 
 ---
 
-## Zur Pflege dieser Seite
+## Persönliche Werkzeuge
 
-- Quelle der Wahrheit ist das jeweilige Repo; hier stehen Zusammenfassungen. Bei
-  Widerspruch gilt das Repo.
-- Stand dieser Übersicht: **2026-10-01**. Zahlen (Sharpe, Renditen) sind
-  Momentaufnahmen aus den jeweiligen Berichten, keine Anlageberatung.
-- Keine Zugangsdaten, Schlüssel oder private Kontostände gehören hierher.
-- Neues Projekt: Steckbrief nach Vorlage in [projekte/_VORLAGE.md](projekte/_VORLAGE.md)
-  anlegen, Zeile in die Tabelle, Knoten in die Karte.
+### Personal Dashboard
+[Repo](https://github.com/Nikros07/Personal-Dashboard) · React/Vite + Fastify + SQLite
+Dashboard mit Obsidian-Anbindung, Aufgaben, Volltextsuche, System-Monitoring. Prototyp.
 
-*Nichts hier ist Anlageberatung. Papierkonto ist Papierkonto.*
+### Hermes AI Dashboard
+Lokal, noch kein Repo · Next.js, Tailwind
+Kommandozentrale mit Widget-Board, Strg+K-Suche, Demo-Daten. **Das kannst du nutzen:** Idee und Aufbau für ein eigenes Dashboard.
+
+### Health Tracker
+[Repo](https://github.com/Nikros07/Health-Tracker) · HTML/JS-PWA
+Installierbare Tracker-App. **Das kannst du nutzen:** `manifest.json` + `sw.js` als Minimal-Vorlage für „App aufs Handy installieren".
 
 ---
 
-## Lizenz
+## Was ich daraus gelernt habe (Kurzfassung)
+- Wenn ein Backtest toll aussieht, ist es meistens ein Messfehler (Blick in die Zukunft, nur ein gutes Jahr, Kosten vergessen).
+- „Nichts tun" muss ein gültiges Ergebnis sein, nie einen Trade erzwingen.
+- Alles, was Geld berührt, rechnet normaler Code, nicht die KI.
+- Trading nur auf Papier, bis es außerhalb der Testdaten bewiesen ist.
 
-[CC BY 4.0](LICENSE) — frei nutzbar, auch kommerziell, du musst nur **Namensnennung
-mit Link** geben:
-
-> Quelle: [Nikros07/Projects](https://github.com/Nikros07/Projects)
-
-Das gilt für Texte und die Code-Schnipsel in [BAUSTEINE.md](BAUSTEINE.md). Die
-verlinkten Projekt-Repos haben ihre eigenen Lizenzen; fremder Code im
-[Umfeld](projekte/umfeld.md) gehört seinen Autoren.
+*Keine Anlageberatung. Vieles hier ist Prototyp.*
