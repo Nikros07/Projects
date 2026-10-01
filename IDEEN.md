@@ -18,8 +18,10 @@ in [LERNEN.md](LERNEN.md).
 - [ ] **Pinned Repos** auf GitHub: Apex, Fly, Nachtschicht, Eye of Horus, diese Übersicht.
 - [ ] Polymarket-Bot: Namen und Titel vereinheitlichen, Branch nach `main` mergen.
 - [ ] Amet: Supabase-Edge-Function einmalig deployen, Pages-Auslieferung prüfen.
-- [ ] Nachtschicht: Cloud-Routinen anlegen (wartet auf `environment_id`); am
-  **25.10.2026** Cron von `0 2/0 3` auf `0 3/0 4` umstellen.
+- [ ] **Nachtschicht pushen:** 7 lokale Commits (Nachtroutine, `NACHT-TODO.md`,
+  `CLAUDE.md`, Skill, `nachttest.js`) liegen nicht auf GitHub — Freunde sehen sie nicht.
+- [ ] Nachtschicht: Cloud-Routine anlegen (wartet auf `environment_id`); am
+  **25.10.2026** (Winterzeit) den Cron um eine Stunde anpassen.
 
 ---
 

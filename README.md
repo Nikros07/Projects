@@ -4,9 +4,26 @@ Die Landkarte aller meiner Projekte und Repos: was es gibt, wie es zusammenhäng
 was funktioniert hat, was nicht — und was du davon für deine eigenen Projekte
 mitnehmen kannst.
 
-> **Lesehilfe:** Wer nur Ideen und Muster will, springt direkt zu
-> [LERNEN.md](LERNEN.md) (Lektionen), [BAUSTEINE.md](BAUSTEINE.md) (Rezepte zum
-> Abschreiben) oder [IDEEN.md](IDEEN.md) (Brainstorm, was als Nächstes kommt).
+## 👋 Für Freunde: Was willst du bauen?
+
+**→ Ausführlich in [NUTZEN.md](NUTZEN.md)** — dort steht je Ziel das Repo, die
+genauen Dateien und wie du nur den Teil holst, den du brauchst. Kurzfassung:
+
+| Ich will … | Nimm … |
+|---|---|
+| einen Backtest, der nicht lügt | [Eye of Horus](projekte/eye-of-horus.md) (`quant_engine/temporal.py`) · [NEMI](projekte/operation-nemi.md) (`nemi/backtest/`) |
+| Marktdaten sammeln, Risiko rechnen | [NEMI](projekte/operation-nemi.md) (`nemi/data/`, `nemi/risk/`) |
+| KI-Agenten, die sich widersprechen | [Polymarket Bot](projekte/polymarket-bot.md) (einfacher) · [Apex Capital](projekte/apex-capital.md) |
+| etwas gratis nachts laufen lassen | [Fly of Wallstreet](projekte/fly-of-wallstreet.md) → [BAUSTEINE.md](BAUSTEINE.md) Nr. 1–2 |
+| KI nachts am Projekt weiterbauen lassen | [Nachtschicht](projekte/nachtschicht.md) → [BAUSTEINE.md](BAUSTEINE.md) Nr. 3 |
+| ein Browserspiel ohne Framework | [Nico Frog](projekte/nico-frog.md) (klein) · [Nachtschicht](projekte/nachtschicht.md) (groß) |
+| eine private App für mich | [Amet](projekte/amet.md) (Supabase) · [Health Tracker](projekte/health-tracker.md) (PWA) |
+| ein Dashboard mit Widgets | [Hermes AI Dashboard](projekte/hermes-ai-dashboard.md) · [Personal Dashboard](projekte/personal-dashboard.md) |
+| Ereignisse mit Märkten verknüpfen | [Eye of Horus](projekte/eye-of-horus.md) |
+| mit einem echten Fliegengehirn spielen | [Fuck the Fly](projekte/fuck-the-fly.md) · [Fly of Wallstreet](projekte/fly-of-wallstreet.md) |
+
+Nur Ideen und Muster ohne Code? → [LERNEN.md](LERNEN.md) (Lektionen),
+[BAUSTEINE.md](BAUSTEINE.md) (Rezepte zum Abschreiben), [IDEEN.md](IDEEN.md) (Brainstorm).
 
 ---
 

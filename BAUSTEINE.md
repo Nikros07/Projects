@@ -83,8 +83,11 @@ fi
 **`NACHT-LOG.md`** — Protokoll, was passiert ist (morgens zuerst lesen).
 **`NACHT-BERICHT.md`** — Testbericht der Tester-Routine.
 
-Dazu zwei Prompts in `routinen/`: *testen* (ändert keinen Code, trägt Funde ein) und
-*weiterbauen* (arbeitet von oben ab, ein Commit pro Punkt). Und in `CLAUDE.md` die
+Dazu **eine** Anleitung `routinen/nacht.md` (erst testen und Funde eintragen, dann
+von oben abarbeiten, ein Commit pro Punkt). In der Oberfläche steht nur ein kurzer
+Prompt: Branch holen, Anleitung lesen, harte Grenzen. Eine Routine reicht, weil das
+Nutzungslimit ein Fünf-Stunden-Fenster am Konto ist — zwei Läufe hintereinander bringen
+nicht mehr Arbeit. Und in `CLAUDE.md` die
 Pflicht, am Ende jeder Aufgabe einen Skill `todo-notieren` aufzurufen, der Offenes,
 Aufgeschobenes und Ungeprüftes einträgt.
 

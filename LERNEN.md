@@ -115,8 +115,9 @@ Warteschlange in einer Datei im Repo. Jeder Eintrag: Priorität, Ort, **messbare
 „Fertig wenn"**. Ohne messbares Ende wird nichts abgehakt.
 
 ### 18. Trenne Tester und Bauer
-**So machst du es:** Eine Routine testet und meldet, eine zweite baut. Der Tester ändert
-keinen Code.
+**So machst du es:** Erst messen, dann bauen — und die Ergebnisse der Messung in die
+Warteschlange schreiben, nicht direkt „mal eben" fixen. Zwei getrennte Läufe (Tester
+ändert keinen Code) sind sauberer, teilen sich aber das Nutzungslimit am Konto.
 
 ### 19. Sicherheitsleine: eigener Branch
 **Beleg:** Arbeit nur auf `claude/nacht`, nie `main`, weil `main` die Live-Seite ist.

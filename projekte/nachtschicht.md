@@ -17,20 +17,28 @@ Taschenlampe, Handy stumm schalten, Kämpfe, Pegel — Steuerung auch für Touch
 (Querformat).
 
 ## Besonderheit: das Projekt baut sich nachts selbst weiter
-Zwei Cloud-Routinen (Prompts liegen im Repo unter `routinen/`) sollen jede Nacht
-arbeiten — **auf einem eigenen Branch `claude/nacht`, nie auf `main`** (sonst würde
-die Live-Seite überschrieben):
+**Eine** Cloud-Routine arbeitet jede Nacht — **auf einem eigenen Branch
+`claude/nacht`, nie auf `main`** (sonst würde die Live-Seite überschrieben). Der
+Prompt in der Oberfläche hat nur ~12 Zeilen: Branch holen, Anleitung lesen, dazu die
+harten Grenzen. Die ganze Anleitung steht in `routinen/nacht.md` und wird von der
+Cloud-Sitzung selbst aus dem Repo geholt — versioniert, und eine Änderung braucht
+keinen Eingriff in die Oberfläche.
 
-| Zeit | Routine | Aufgabe |
-|---|---|---|
-| 4:00 | `nacht-4-testen` | testet alles, schreibt `NACHT-BERICHT.md`, trägt Funde in die Warteschlange ein; ändert **keinen** Spielcode |
-| 5:00 | `nacht-5-weiterbauen` | arbeitet `NACHT-TODO.md` von oben ab, testet jede Änderung, ein Commit je Punkt |
+*Warum eine statt zwei (frühere Fassung: Testen um 4, Bauen um 5):* Das Nutzungslimit
+ist ein Fünf-Stunden-Fenster am Konto. Zwei Läufe im Abstand einer Stunde teilen sich
+dasselbe Fenster und bringen nicht mehr Arbeit, nur doppelten Aufwand — der zweite
+liest alles noch einmal. Die zwei alten Prompts bleiben als Vorlage.
 
 Morgens: `NACHT-LOG.md` lesen, `git log main..origin/claude/nacht` ansehen, mergen oder verwerfen.
 
-**Stand:** Prompts und Warteschlange stehen; das Anlegen der Cloud-Routinen wartet
-noch auf eine `environment_id`. Cron läuft in UTC — am 25.10.2026 (Winterzeit)
-auf `0 3` / `0 4` umstellen.
+**Stand (2026-10-01):** Anleitung und Warteschlange stehen lokal; das Anlegen der
+Cloud-Routine wartet noch auf eine `environment_id`. Cron läuft in UTC — am
+25.10.2026 (Winterzeit) um eine Stunde anpassen.
+
+> ⚠️ **Auf GitHub fehlen diese Dateien noch** (`NACHT-TODO.md`, `routinen/`,
+> `CLAUDE.md`, Skill `todo-notieren`, `tools/nachttest.js`): Sie liegen in
+> lokalen, noch ungepushten Commits. Wer sie nachbauen will: Beschreibung in
+> [BAUSTEINE.md](../BAUSTEINE.md), Nr. 3, oder bei mir nachfragen.
 
 ## Das kannst du mitnehmen
 - **Warteschlange als Gedächtnis:** Die Nacht-Sitzung hat keine Erinnerung an den
@@ -38,8 +46,10 @@ auf `0 3` / `0 4` umstellen.
   einem **messbaren „Fertig wenn"** — ohne das wird nichts abgehakt.
 - **Skill `todo-notieren`:** am Ende jeder Aufgabe automatisch Offenes eintragen
   (steht als Pflicht in `CLAUDE.md`).
-- **Trennung Tester / Bauer:** Die 4-Uhr-Routine darf nichts ändern, die 5-Uhr
-  darf bauen — so prüft niemand seine eigene Arbeit.
+- **Erst testen, dann bauen — im selben Lauf:** Erst misst die Routine den Ist-Zustand
+  und trägt Funde in die Warteschlange ein, dann arbeitet sie diese ab. Wer lieber
+  strikt trennt (Tester ändert nichts, Bauer baut), nimmt die zwei alten Prompts —
+  zwei Läufe teilen sich aber das Nutzungslimit.
 - **Sicherheit durch Branch-Präfix `claude/`**, zusätzlich im Prompt verboten:
   `main`, `--force`, Löschen. „Entscheidung nötig" fassen Routinen nicht an.
 - **Test ohne Browser:** `tools/nachttest.js` setzt Engine und Level headless
