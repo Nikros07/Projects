@@ -110,3 +110,16 @@ mitnehmen"** — das ist der Teil, der auch ohne Kontext funktioniert.
   anlegen, Zeile in die Tabelle, Knoten in die Karte.
 
 *Nichts hier ist Anlageberatung. Papierkonto ist Papierkonto.*
+
+---
+
+## Lizenz
+
+[CC BY 4.0](LICENSE) — frei nutzbar, auch kommerziell, du musst nur **Namensnennung
+mit Link** geben:
+
+> Quelle: [Nikros07/Projects](https://github.com/Nikros07/Projects)
+
+Das gilt für Texte und die Code-Schnipsel in [BAUSTEINE.md](BAUSTEINE.md). Die
+verlinkten Projekt-Repos haben ihre eigenen Lizenzen; fremder Code im
+[Umfeld](projekte/umfeld.md) gehört seinen Autoren.
