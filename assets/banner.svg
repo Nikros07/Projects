@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 300" width="100%" role="img" aria-label="Nikros07 Projects">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0f172a"/>
+      <stop offset="1" stop-color="#312e81"/>
+    </linearGradient>
+    <linearGradient id="acc" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#22d3ee"/>
+      <stop offset="1" stop-color="#a78bfa"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="300" rx="18" fill="url(#bg)"/>
+  <g stroke="#ffffff" stroke-opacity="0.08" stroke-width="1">
+    <path d="M0 60H1200M0 120H1200M0 180H1200M0 240H1200"/>
+    <path d="M100 0V300M300 0V300M500 0V300M700 0V300M900 0V300M1100 0V300"/>
+  </g>
+  <!-- Netzwerk aus Knoten = Projekte -->
+  <g stroke="url(#acc)" stroke-width="2" stroke-opacity="0.7" fill="none">
+    <path d="M880 70L980 130L1090 80M980 130L940 220L1060 230M980 130L1060 230"/>
+  </g>
+  <g fill="url(#acc)">
+    <circle cx="880" cy="70" r="9"/><circle cx="980" cy="130" r="14"/><circle cx="1090" cy="80" r="9"/>
+    <circle cx="940" cy="220" r="10"/><circle cx="1060" cy="230" r="9"/>
+  </g>
+  <text x="60" y="130" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="68" font-weight="700" fill="#ffffff">Meine Projekte</text>
+  <rect x="62" y="150" width="260" height="6" rx="3" fill="url(#acc)"/>
+  <text x="60" y="205" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="28" fill="#c7d2fe">Trading · KI-Agenten · Spiele · Werkzeuge</text>
+  <text x="60" y="248" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="22" fill="#94a3b8">Was ich gebaut habe — und was du davon für dein Projekt nutzen kannst</text>
+</svg>

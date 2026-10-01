@@ -1,0 +1,217 @@
+{
+  "$comment": "Maschinenlesbarer Index aller Projekte von Nikros07. Quelle der Wahrheit ist jeweils das Repo; Stand 2026-10-01. Pfade in 'reuse' stammen aus den Dateilisten der Repos — vor dem Empfehlen kurz pruefen, ob sie noch existieren.",
+  "owner": "Nikros07",
+  "updated": "2026-10-01",
+  "attribution": "Bei Wiederverwendung bitte auf https://github.com/Nikros07/Projects verlinken.",
+  "global_rules": [
+    "Keine Zugangsdaten, API-Schluessel oder .env-Dateien kopieren oder committen.",
+    "Trading-Code nur im Papier-/Demo-Modus empfehlen, nie live.",
+    "Zahlen (Sharpe, Renditen) sind Momentaufnahmen aus den Repo-Berichten, keine Anlageberatung.",
+    "Nur Teile holen, die gebraucht werden (git sparse-checkout), nicht ganze Repos."
+  ],
+  "projects": [
+    {
+      "id": "apex-capital",
+      "name": "Apex Capital",
+      "repo": "https://github.com/Nikros07/Apex-Capital",
+      "category": "trading",
+      "status": "live",
+      "stack": ["Python 3.11", "FastAPI", "Docker", "Railway"],
+      "summary": "10 KI-Agenten mit Rollen recherchieren, debattieren und handeln auf einem Papierkonto.",
+      "tags": ["multi-agent", "llm", "paper-trading", "debate"],
+      "good_for": ["Agenten-Team mit Rollen und Widerspruch bauen"],
+      "reuse": [
+        {"path": "agents/", "what": "Rollen-Agenten (base, committee, cio, devil, risk, macro, technical, fundamental, sentiment, research)"},
+        {"path": "core/scheduler.py", "what": "Zeitplan fuer wiederkehrende Laeufe"}
+      ],
+      "caveats": ["Enthielt erzwungene Trade-Pfade (Anti-Muster, nicht uebernehmen)."]
+    },
+    {
+      "id": "operation-nemi",
+      "name": "Operation NEMI",
+      "repo": "https://github.com/Nikros07/Operation-NEMI",
+      "category": "trading",
+      "status": "research-negative",
+      "stack": ["Python 3.11", "Railway Cron"],
+      "summary": "Quant-Forschung mit NO TRADE als Standard. Erster Backtest: nicht profitabel, kein Setup validiert.",
+      "tags": ["backtest", "walk-forward", "risk", "market-data"],
+      "good_for": ["ehrlichen Backtest bauen", "Marktdaten sammeln", "Positionsgroesse und Stops rechnen"],
+      "reuse": [
+        {"path": "nemi/backtest/", "what": "engine, metrics, montecarlo, validation (Walk-forward, Out-of-Sample)"},
+        {"path": "nemi/data/", "what": "Yahoo-Sammler, Speicher, Datenvalidierung"},
+        {"path": "nemi/risk/", "what": "sizing.py, stops.py"},
+        {"path": "nemi/engine/regime.py", "what": "Marktregime-Erkennung"}
+      ],
+      "caveats": ["Setups haben im Walk-forward nicht gehalten; Bausteine nutzen, nicht die Strategien."]
+    },
+    {
+      "id": "fly-of-wallstreet",
+      "name": "Fly of Wallstreet",
+      "repo": "https://github.com/Nikros07/Fly-of-Wallstreet",
+      "category": "trading",
+      "status": "live-no-edge",
+      "stack": ["Python", "NumPy", "GitHub Actions", "Alpaca (Paper)"],
+      "summary": "Kuenstliche Fruchtfliegen (Pilzkoerper + Dopamin) lernen Trading, woechentliche Evolution. Kein belegter Vorsprung vor SPY.",
+      "tags": ["neuroscience", "evolution", "github-actions", "paper-trading"],
+      "good_for": ["kostenlosen taeglichen Job auf GitHub Actions", "evolutionaere Algorithmen", "Alpaca-Papierkonto anbinden"],
+      "reuse": [
+        {"path": ".github/workflows/daily.yml", "what": "Cron mit Zustand auf Orphan-Branch, zwei Termine, concurrency-Gruppe"},
+        {"path": "fly/evolution.py", "what": "Auslese, Kreuzung"},
+        {"path": "fly/broker.py", "what": "Alpaca nur Papierkonto"},
+        {"path": "fly/dopamine.py", "what": "Belohnungslernen"}
+      ],
+      "caveats": ["Fruehe Ergebnisse (v1-v3) waren durch Look-ahead verfaelscht; README dokumentiert das."]
+    },
+    {
+      "id": "eye-of-horus",
+      "name": "Eye of Horus",
+      "repo": "https://github.com/Nikros07/Eye-of-Horus",
+      "category": "trading",
+      "status": "demo-complete",
+      "stack": ["FastAPI", "SQLAlchemy 2", "Pydantic v2", "Next.js 16", "React Three Fiber"],
+      "summary": "Ereignis -> Verifikation -> Impact-Graph -> Signal -> Backtest -> Papierhandel, mit erzwungener Look-ahead-Freiheit und 3D-Globus.",
+      "tags": ["events", "backtest", "no-lookahead", "dashboard", "3d"],
+      "good_for": ["Backtester der Zukunftsdaten verweigert", "Events (Wetter/Katastrophen) mit Maerkten verknuepfen"],
+      "reuse": [
+        {"path": "backend/app/services/quant_engine/", "what": "backtester, metrics, temporal (Look-ahead-Sperre)"},
+        {"path": "backend/app/services/event_engine/", "what": "Ingest, Verifikation, Connectors (NASA EONET, Open-Meteo)"},
+        {"path": "backend/app/services/impact_engine/", "what": "Regelbasierter Impact-Graph"}
+      ],
+      "caveats": ["DATA_MODE=demo ist Standard; Demo-Daten sind mit is_demo gekennzeichnet und enthalten kuenstlichen Drift."]
+    },
+    {
+      "id": "polymarket-bot",
+      "name": "Polymarket Bot (AI Decision System)",
+      "repo": "https://github.com/Nikros07/Polymarket-Bot",
+      "category": "trading",
+      "status": "dormant",
+      "stack": ["Python", "Streamlit", "FastAPI", "OpenRouter", "Tavily"],
+      "summary": "10-Agenten-Entscheider fuer Wetten und Prognosemaerkte mit Pflicht-Skeptiker.",
+      "tags": ["multi-agent", "prediction-markets", "llm", "streamlit"],
+      "good_for": ["einfache Agenten-Pipeline mit Orchestrator"],
+      "reuse": [
+        {"path": "backend/agents/", "what": "Agenten inkl. skeptic_agent und debate_agent"},
+        {"path": "backend/core/orchestrator.py", "what": "Pipeline-Steuerung"},
+        {"path": "backend/core/scoring.py", "what": "Gewichtetes Scoring"}
+      ],
+      "caveats": ["Ruht seit April 2026; Feature-Branch, nicht main."]
+    },
+    {
+      "id": "mt5-master-strategy",
+      "name": "MT5 Master Strategy",
+      "repo": null,
+      "category": "trading",
+      "status": "local-only",
+      "stack": ["MQL5", "Python"],
+      "summary": "Forex-EA v7 (13 Maerkte, Tagesbasis) und ETF-Momentum-Portfolio v4, gemessen gegen DAX und S&P 500.",
+      "tags": ["forex", "etf", "momentum", "walk-forward"],
+      "good_for": ["Lehren zu Kosten und Benchmarks"],
+      "reuse": [],
+      "caveats": ["Kein Repo; nur als Wissen nutzbar. ETF-Strategie schlaegt S&P-Buy-and-Hold nach Steuer nicht."]
+    },
+    {
+      "id": "amet",
+      "name": "Amet",
+      "repo": "https://github.com/Nikros07/Amet",
+      "category": "tool",
+      "status": "usable",
+      "stack": ["Vanilla JS (ES-Module)", "Supabase", "GitHub Pages"],
+      "summary": "Private Finanz-App mit Wallets, Budgets, Sparzielen, Forecast und KI-Assistent. Kein Bankzugriff.",
+      "tags": ["personal-finance", "supabase", "no-build", "rls"],
+      "good_for": ["Ein-Personen-App mit Supabase ohne Build"],
+      "reuse": [
+        {"path": "supabase/", "what": "schema.sql und nummerierte Migrationen (RLS, Ownership-Checks)"},
+        {"path": "js/", "what": "wallets, budgets, goals, quick-entry, analytics"}
+      ],
+      "caveats": ["Edge Function fuer den KI-Assistenten muss einmalig selbst deployed werden."]
+    },
+    {
+      "id": "nachtschicht",
+      "name": "Nachtschicht",
+      "repo": "https://github.com/Nikros07/Nachtschicht",
+      "play": "https://nikros07.github.io/Nachtschicht/",
+      "category": "game",
+      "status": "playable",
+      "stack": ["Vanilla JS", "Canvas", "GitHub Pages"],
+      "summary": "Pixel-Art-Partyspiel im Browser, 8 Level, ohne Build, mit Touch-Steuerung.",
+      "tags": ["game", "canvas", "no-framework", "mobile"],
+      "good_for": ["Browserspiel ohne Framework"],
+      "reuse": [
+        {"path": "nacht/", "what": "Engine: kern, welt, kampf, dialog, ton, eingabe, mobil, handy"},
+        {"path": "ARCHITEKTUR.md", "what": "Karte des Codes mit Rezepten fuer typische Aenderungen"}
+      ],
+      "caveats": ["Nachtroutine, NACHT-TODO.md und nachttest.js liegen (Stand 2026-10-01) nur lokal, nicht auf GitHub."]
+    },
+    {
+      "id": "nico-frog",
+      "name": "Nico Frog",
+      "repo": "https://github.com/Nikros07/Nico-Frog",
+      "category": "game",
+      "status": "done",
+      "stack": ["HTML", "JavaScript"],
+      "summary": "Mini-Browserspiel in einer einzigen HTML-Datei.",
+      "tags": ["game", "single-file"],
+      "good_for": ["kleinste Vorlage fuer ein Browserspiel"],
+      "reuse": [{"path": "index.html", "what": "komplettes Spiel"}],
+      "caveats": []
+    },
+    {
+      "id": "fuck-the-fly",
+      "name": "Fuck the Fly (Fly Tinder)",
+      "repo": "https://github.com/Nikros07/Fuck-the-Fly",
+      "category": "toy",
+      "status": "done",
+      "stack": ["Python", "flybrain"],
+      "summary": "Ein echtes Fliegenhirn-Modell (166.700 Neuronen) entscheidet, ob ein Bild links oder rechts geswiped wird.",
+      "tags": ["connectome", "neuroscience", "toy"],
+      "good_for": ["Einstieg in Konnektom-Daten"],
+      "reuse": [{"path": "fly_tinder.py", "what": "komplettes Skript"}],
+      "caveats": ["Laedt beim ersten Start ca. 260 MB Daten."]
+    },
+    {
+      "id": "personal-dashboard",
+      "name": "Personal Dashboard",
+      "repo": "https://github.com/Nikros07/Personal-Dashboard",
+      "category": "tool",
+      "status": "prototype",
+      "stack": ["React", "Vite", "Tailwind", "Fastify", "SQLite"],
+      "summary": "Lokales Dashboard mit Obsidian-Sync, Aufgaben, Volltextsuche (FTS5) und System-Monitoring.",
+      "tags": ["dashboard", "obsidian", "sqlite"],
+      "good_for": ["lokales Dashboard mit Volltextsuche"],
+      "reuse": [
+        {"path": "backend/", "what": "Fastify + SQLite"},
+        {"path": "frontend/", "what": "React + Vite + Tailwind"}
+      ],
+      "caveats": ["Prototyp, letzter Push 2026-07-01."]
+    },
+    {
+      "id": "hermes-ai-dashboard",
+      "name": "Hermes AI Dashboard",
+      "repo": null,
+      "category": "tool",
+      "status": "local-only",
+      "stack": ["Next.js", "Tailwind", "Framer Motion"],
+      "summary": "KI-Kommandozentrale mit Widget-Board, Strg+K-Suche und Demo-Daten.",
+      "tags": ["dashboard", "nextjs", "widgets"],
+      "good_for": ["Idee und Aufbau fuer ein eigenes Dashboard"],
+      "reuse": [],
+      "caveats": ["Noch kein GitHub-Repo."]
+    },
+    {
+      "id": "health-tracker",
+      "name": "Health Tracker",
+      "repo": "https://github.com/Nikros07/Health-Tracker",
+      "category": "tool",
+      "status": "done",
+      "stack": ["HTML", "JS (ES-Module)", "PWA"],
+      "summary": "Installierbare Tracker-PWA.",
+      "tags": ["pwa", "tracker"],
+      "good_for": ["Minimal-PWA (installierbar, offlinefaehig)"],
+      "reuse": [
+        {"path": "manifest.json", "what": "App-Manifest"},
+        {"path": "sw.js", "what": "Service Worker mit Cache-Liste"}
+      ],
+      "caveats": ["js/github-storage.js schreibt Daten ins oeffentliche Repo; nicht fuer private Daten uebernehmen."]
+    }
+  ]
+}
